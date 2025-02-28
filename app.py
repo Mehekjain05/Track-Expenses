@@ -14,6 +14,21 @@ class Finance_Tracker:
             df = pd.DataFrame(columns=cls.COLUMNS)
             df.to_csv(cls.CSV_file, index=False)
             
+    @classmethod
+    def append_to_csv(cls, date, amount, category, description):
+        addItem = {
+            "date" : date,
+            "amount" : amount,
+            "category" : category,
+            "description" : description
+        }
+        
+        with open(file=cls.CSV_file, mode="a", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=cls.COLUMNS)
+            writer.writerow(addItem)
+        print("Entry Added Successfully")    
+            
+            
             
     
     
