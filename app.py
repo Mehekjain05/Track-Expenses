@@ -33,4 +33,4 @@ class Finance_Tracker:
     
     
     
-Finance_Tracker.intialize_csv()                
+# Finance_Tracker.append_to_csv("27-02-2025", 500.00, "Incoming", "PocketMoney")                
