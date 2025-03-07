@@ -18,7 +18,7 @@ def get_date(prompt, allow_default = False):
 
 def get_amount():
     try:
-        amt = input("Enter the amount")
+        amt = int(input("Enter the amount "))
         if amt <= 0:
             print("Amount should be positive and Nonzero")
         return amt    
@@ -29,7 +29,7 @@ def get_amount():
 
 def get_category():
     try:
-        category = input("Entry I => Credited or O => Debited").upper()
+        category = input("Entry I => Credited or O => Debited ").upper()
         for category in CATEGORIES:
             return CATEGORIES[category]
     except ValueError as e:
@@ -38,7 +38,7 @@ def get_category():
 
 def get_description():
     try:
-        description = input("Enter the description")
+        description = input("Enter the description ")
         return description
     except Exception as e:
         print("Enter a valid Description" + e)
