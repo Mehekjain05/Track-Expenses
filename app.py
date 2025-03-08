@@ -36,12 +36,13 @@ class Finance_Tracker:
         end_date = datetime.strptime(end_date, "%d-%m-%Y")
         
         filtered_df = df[(df["date"] >= start_date) & (df["date"] <= end_date)]
-        print(filtered_df) 
+        # print(filtered_df) 
         
-        if not filtered_df:
+        if filtered_df.empty:
             print("No Data Exists")     
         else:
-            print(f"The Transaction from {start_date.strftime("%d-%m-%Y")} to {end_date.strftime("%d-%m-%Y")}")    
+            print(f"The Transaction from {start_date.strftime("%d-%m-%Y")} to {end_date.strftime("%d-%m-%Y")}")  
+            print(filtered_df.to_string(index=False, formatters={"date" : lambda x : x.strftime("%d-%m-%Y")}))  
         
 def main():
     Finance_Tracker.intialize_csv()
